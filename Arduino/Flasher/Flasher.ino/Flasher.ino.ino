@@ -23,7 +23,7 @@
 
 // Define our center values for freqnecy 
 
-#define CENTER_FREQ_HZ  10.0
+#define CENTER_FREQ_HZ  10.75
 
 // Define how much the dials can adjust 
 
@@ -36,6 +36,8 @@
 #define TIMER_TICKS_PER_MS (TIMER_TICKS_PER_S/MS_PER_S)
 
 void setup() {
+
+  Serial.begin(9600);
 
   // Start with sane values here so we don'ty blow out the LEDs
   // but these will get rewritten very soon on 1st pass though loop()
@@ -73,10 +75,13 @@ void setup() {
   pinMode( A5 , OUTPUT );
   digitalWrite( A5 , 1 );
 
+  ICR1 = 24197; // tested in store 12/8/2017 
+  OCR1A = 2650; // tested in store 12/8/2017 
 }
 
 void loop() {
-
+  while(1);
+  
   // Read -1.0 to +1.0 normalized values for the dial
   float freqDial = (analogRead( A4 ) -512)  /1023.0;
 
@@ -93,9 +98,11 @@ void loop() {
   ICR1 = top; 
 
   OCR1A = match;
-
   //OCR1A = analogRead(A1);
-
+  Serial.print("freq: ");
+  Serial.print(top);
+  Serial.print("duty: ");
+  Serial.println(match);
    
 }
 
