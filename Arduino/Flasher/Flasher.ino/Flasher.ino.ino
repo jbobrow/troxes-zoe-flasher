@@ -85,12 +85,8 @@ void setup() {
 }
 
 void loop() {
-<<<<<<< HEAD
   while(1);
   
-=======
-return;
->>>>>>> d632ecbba007be42430d47dd359fac95acd87a5a
   // Read -1.0 to +1.0 normalized values for the dial
   float freqDial = (analogRead( A4 ) -512)  /1023.0;
 
