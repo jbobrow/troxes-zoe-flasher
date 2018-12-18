@@ -80,8 +80,8 @@ void setup() {
   pinMode( A5 , OUTPUT );
   digitalWrite( A5 , 1 );
 
-  ICR1 = 24197; // tested in store 12/8/2017 
-  OCR1A = 2650; // tested in store 12/8/2017 
+  ICR1 = 22400; // tested in store 12/20/2017 
+  OCR1A = 1000; // tested in store 12/20/2017 
 }
 
 void loop() {
